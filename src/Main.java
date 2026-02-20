@@ -4,24 +4,45 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+        int choice;
 
-        System.out.print("Enter a sentence: ");
-        String input = scanner.nextLine();
+        do {
+            System.out.println("\n===== Palindrome Checker Menu =====");
+            System.out.println("1. Check Palindrome");
+            System.out.println("2. Exit");
+            System.out.print("Enter your choice: ");
 
-        // Remove spaces and special characters
-        String cleaned = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+            choice = scanner.nextInt();
+            scanner.nextLine(); // consume newline
 
-        String reversed = "";
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter a sentence: ");
+                    String input = scanner.nextLine();
 
-        for (int i = cleaned.length() - 1; i >= 0; i--) {
-            reversed += cleaned.charAt(i);
-        }
+                    String cleaned = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+                    String reversed = "";
 
-        if (cleaned.equals(reversed)) {
-            System.out.println("It is a Palindrome");
-        } else {
-            System.out.println("It is not a Palindrome");
-        }
+                    for (int i = cleaned.length() - 1; i >= 0; i--) {
+                        reversed += cleaned.charAt(i);
+                    }
+
+                    if (cleaned.equals(reversed)) {
+                        System.out.println("It is a Palindrome");
+                    } else {
+                        System.out.println("It is not a Palindrome");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Exiting application...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice! Try again.");
+            }
+
+        } while (choice != 2);
 
         scanner.close();
     }
