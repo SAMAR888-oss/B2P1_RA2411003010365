@@ -1,55 +1,45 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
-
-    // Method to clean the string (remove special characters & spaces)
-    public static String cleanString(String input) {
-        return input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-    }
-
-    // Method to check palindrome
-    public static boolean isPalindrome(String input) {
-        String cleaned = cleanString(input);
-        String reversed = new StringBuilder(cleaned).reverse().toString();
-        return cleaned.equals(reversed);
-    }
 
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int choice;
 
-        do {
-            System.out.println("\n===== Advanced Palindrome Application (UC6) =====");
-            System.out.println("1. Check Palindrome");
-            System.out.println("2. Exit");
-            System.out.print("Enter your choice: ");
+        System.out.println("===== UC6: Queue + Stack Based Palindrome =====");
+        System.out.print("Enter a word: ");
+        String input = scanner.nextLine();
 
-            choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+        // Convert to lowercase (optional but good)
+        input = input.toLowerCase();
 
-            switch (choice) {
+        Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
 
-                case 1:
-                    System.out.print("Enter a word or sentence: ");
-                    String input = scanner.nextLine();
+        // Add characters to both
+        for (char c : input.toCharArray()) {
+            stack.push(c);
+            queue.add(c);
+        }
 
-                    if (isPalindrome(input)) {
-                        System.out.println("✅ \"" + input + "\" is a Palindrome.");
-                    } else {
-                        System.out.println("❌ \"" + input + "\" is NOT a Palindrome.");
-                    }
-                    break;
+        boolean isPalindrome = true;
 
-                case 2:
-                    System.out.println("Thank you for using Advanced Palindrome Checker!");
-                    break;
-
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+        // Compare elements
+        while (!stack.isEmpty()) {
+            if (stack.pop() != queue.remove()) {
+                isPalindrome = false;
+                break;
             }
+        }
 
-        } while (choice != 2);
+        if (isPalindrome) {
+            System.out.println("It is a Palindrome.");
+        } else {
+            System.out.println("It is NOT a Palindrome.");
+        }
 
         scanner.close();
     }
