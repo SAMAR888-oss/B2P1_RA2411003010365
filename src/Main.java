@@ -5,19 +5,22 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a word: ");
-        String word = scanner.nextLine();
+        System.out.print("Enter a sentence: ");
+        String input = scanner.nextLine();
+
+        // Remove spaces and special characters
+        String cleaned = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
         String reversed = "";
 
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed += word.charAt(i);
+        for (int i = cleaned.length() - 1; i >= 0; i--) {
+            reversed += cleaned.charAt(i);
         }
 
-        if (word.equalsIgnoreCase(reversed)) {
-            System.out.println(word + " is a Palindrome");
+        if (cleaned.equals(reversed)) {
+            System.out.println("It is a Palindrome");
         } else {
-            System.out.println(word + " is not a Palindrome");
+            System.out.println("It is not a Palindrome");
         }
 
         scanner.close();
