@@ -8,7 +8,15 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+        System.out.println("===== UC2: Hardcoded Palindrome =====");
+
+        String word = "MADAM";   // Hardcoded value
+
+        String reversed = "";
+
         Scanner scanner = new Scanner(System.in);
+
 
 
         System.out.println("===== UC3: Palindrome Check Using String =====");
@@ -38,6 +46,11 @@ public class Main {
 
 
         if (word.equals(reversed)) {
+
+            System.out.println(word + " is a Palindrome.");
+        } else {
+            System.out.println(word + " is NOT a Palindrome.");
+
             System.out.println("Result: It is a Palindrome.");
         } else {
             System.out.println("Result: It is NOT a Palindrome.");
@@ -56,6 +69,7 @@ public class Main {
         // Push characters into stack
         for (char c : word.toCharArray()) {
             stack.push(c);
+
         }
 
         boolean isPalindrome = true;
