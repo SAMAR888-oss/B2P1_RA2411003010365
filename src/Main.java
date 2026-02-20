@@ -1,26 +1,36 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter a sentence: ");
-        String input = scanner.nextLine();
+        System.out.println("===== UC4: Character Array Based Palindrome =====");
+        System.out.print("Enter a word: ");
+        String word = scanner.nextLine();
 
-        // Remove spaces and special characters
-        String cleaned = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        // Convert string to character array
+        char[] characters = word.toCharArray();
 
-        String reversed = "";
+        boolean isPalindrome = true;
 
-        for (int i = cleaned.length() - 1; i >= 0; i--) {
-            reversed += cleaned.charAt(i);
+        int start = 0;
+        int end = characters.length - 1;
+
+        while (start < end) {
+            if (characters[start] != characters[end]) {
+                isPalindrome = false;
+                break;
+            }
+            start++;
+            end--;
         }
 
-        if (cleaned.equals(reversed)) {
-            System.out.println("It is a Palindrome");
+        if (isPalindrome) {
+            System.out.println("Result: It is a Palindrome.");
         } else {
-            System.out.println("It is not a Palindrome");
+            System.out.println("Result: It is NOT a Palindrome.");
         }
 
         scanner.close();
