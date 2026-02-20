@@ -1,7 +1,8 @@
-import java.util.LinkedList;
-import java.util.Queue;
+
 import java.util.Scanner;
 import java.util.Stack;
+
+
 
 public class Main {
 
@@ -9,27 +10,22 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("===== UC6: Queue + Stack Based Palindrome =====");
+        System.out.println("===== UC5: Stack Based Palindrome Check =====");
         System.out.print("Enter a word: ");
-        String input = scanner.nextLine();
-
-        // Convert to lowercase (optional but good)
-        input = input.toLowerCase();
+        String word = scanner.nextLine();
 
         Stack<Character> stack = new Stack<>();
-        Queue<Character> queue = new LinkedList<>();
 
-        // Add characters to both
-        for (char c : input.toCharArray()) {
+        // Push characters into stack
+        for (char c : word.toCharArray()) {
             stack.push(c);
-            queue.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // Compare elements
-        while (!stack.isEmpty()) {
-            if (stack.pop() != queue.remove()) {
+        // Compare characters
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != stack.pop()) {
                 isPalindrome = false;
                 break;
             }
@@ -42,5 +38,8 @@ public class Main {
         }
 
         scanner.close();
+
+        System.out.println("Welcome to Palindrome Application");
+
     }
 }
