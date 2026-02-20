@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("===== UC3: Palindrome Check Using String =====");
         System.out.print("Enter a word: ");
         String word = scanner.nextLine();
 
@@ -14,10 +16,10 @@ public class Main {
             reversed += word.charAt(i);
         }
 
-        if (word.equalsIgnoreCase(reversed)) {
-            System.out.println(word + " is a Palindrome");
+        if (word.equals(reversed)) {
+            System.out.println("Result: It is a Palindrome.");
         } else {
-            System.out.println(word + " is not a Palindrome");
+            System.out.println("Result: It is NOT a Palindrome.");
         }
 
         scanner.close();
