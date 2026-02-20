@@ -1,48 +1,38 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int choice;
 
-        do {
-            System.out.println("\n===== Palindrome Checker Menu =====");
-            System.out.println("1. Check Palindrome");
-            System.out.println("2. Exit");
-            System.out.print("Enter your choice: ");
+        System.out.println("===== UC5: Stack Based Palindrome Check =====");
+        System.out.print("Enter a word: ");
+        String word = scanner.nextLine();
 
-            choice = scanner.nextInt();
-            scanner.nextLine(); // consume newline
+        Stack<Character> stack = new Stack<>();
 
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter a sentence: ");
-                    String input = scanner.nextLine();
+        // Push characters into stack
+        for (char c : word.toCharArray()) {
+            stack.push(c);
+        }
 
-                    String cleaned = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-                    String reversed = "";
+        boolean isPalindrome = true;
 
-                    for (int i = cleaned.length() - 1; i >= 0; i--) {
-                        reversed += cleaned.charAt(i);
-                    }
-
-                    if (cleaned.equals(reversed)) {
-                        System.out.println("It is a Palindrome");
-                    } else {
-                        System.out.println("It is not a Palindrome");
-                    }
-                    break;
-
-                case 2:
-                    System.out.println("Exiting application...");
-                    break;
-
-                default:
-                    System.out.println("Invalid choice! Try again.");
+        // Compare characters
+        for (int i = 0; i < word.length(); i++) {
+            if (word.charAt(i) != stack.pop()) {
+                isPalindrome = false;
+                break;
             }
+        }
 
-        } while (choice != 2);
+        if (isPalindrome) {
+            System.out.println("It is a Palindrome.");
+        } else {
+            System.out.println("It is NOT a Palindrome.");
+        }
 
         scanner.close();
     }
