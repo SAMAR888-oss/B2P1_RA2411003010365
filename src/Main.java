@@ -1,5 +1,8 @@
+
 import java.util.Scanner;
 import java.util.Stack;
+
+
 
 public class Main {
 
@@ -35,5 +38,8 @@ public class Main {
         }
 
         scanner.close();
+
+        System.out.println("Welcome to Palindrome Application");
+
     }
 }
