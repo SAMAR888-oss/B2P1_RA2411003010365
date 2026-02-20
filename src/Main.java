@@ -11,7 +11,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
 
+        System.out.println("===== UC3: Palindrome Check Using String =====");
+
+
         System.out.println("===== UC4: Character Array Based Palindrome =====");
+
         System.out.print("Enter a word: ");
         String word = scanner.nextLine();
 
@@ -31,6 +35,12 @@ public class Main {
             start++;
             end--;
         }
+
+
+        if (word.equals(reversed)) {
+            System.out.println("Result: It is a Palindrome.");
+        } else {
+            System.out.println("Result: It is NOT a Palindrome.");
 
         if (isPalindrome) {
             System.out.println("Result: It is a Palindrome.");
@@ -62,6 +72,7 @@ public class Main {
             System.out.println("It is a Palindrome.");
         } else {
             System.out.println("It is NOT a Palindrome.");
+
 
         }
 
