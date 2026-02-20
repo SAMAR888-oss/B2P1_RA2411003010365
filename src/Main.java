@@ -1,7 +1,11 @@
 public class Main {
+
     public static void main(String[] args) {
 
-        String word = "MADAM";
+        System.out.println("===== UC2: Hardcoded Palindrome =====");
+
+        String word = "MADAM";   // Hardcoded value
+
         String reversed = "";
 
         for (int i = word.length() - 1; i >= 0; i--) {
@@ -9,9 +13,9 @@ public class Main {
         }
 
         if (word.equals(reversed)) {
-            System.out.println(word + " is a Palindrome");
+            System.out.println(word + " is a Palindrome.");
         } else {
-            System.out.println(word + " is not a Palindrome");
+            System.out.println(word + " is NOT a Palindrome.");
         }
     }
 }
